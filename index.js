@@ -13,6 +13,9 @@ await client.connect(); // call
 console.log("Mongo is connected !!!  ");
 app.use(cors());
 
+app.get("/", async function (request, response) {
+  response.send("hello freaks");
+});
 app.get("/data", async function (request, response) {
   const result = await client.db("ruby").collection("data").find({}).toArray();
   response.send(result);
